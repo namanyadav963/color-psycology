@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Psychology Palette Picker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🎨 Color Psychology Palette Picker</h1>
+            <p>Discover the perfect color combinations based on psychology and emotions</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Color Psychology Selector -->
+            <section class="psychology-selector">
+                <h2>Choose Your Emotion or Purpose</h2>
+                <div class="emotion-grid" id="emotionGrid">
+                    <!-- Emotions will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Color Palette Display -->
+            <section class="palette-section">
+                <h2>Your Color Palette</h2>
+                <div class="palette-container" id="paletteContainer">
+                    <div class="palette-placeholder">
+                        <p>Select an emotion above to generate your color palette</p>
+                    </div>
+                </div>
+                <div class="palette-actions">
+                    <button class="btn btn-primary" id="generateRandom">Generate Random Palette</button>
+                    <button class="btn btn-secondary" id="exportPalette">Export Palette</button>
+                </div>
+            </section>
+
+            <!-- Color Picker Section -->
+            <section class="color-picker-section">
+                <h2>Custom Color Picker</h2>
+                <div class="color-picker-container">
+                    <div class="color-input-group">
+                        <label for="colorPicker">Choose a color:</label>
+                        <input type="color" id="colorPicker" value="#3498db">
+                    </div>
+                    <div class="color-values">
+                        <div class="value-group">
+                            <label for="hexInput">HEX:</label>
+                            <input type="text" id="hexInput" value="#3498db" maxlength="7">
+                        </div>
+                        <div class="value-group">
+                            <label for="rgbInput">RGB:</label>
+                            <input type="text" id="rgbInput" value="rgb(52, 152, 219)" readonly>
+                        </div>
+                        <div class="value-group">
+                            <label for="hslInput">HSL:</label>
+                            <input type="text" id="hslInput" value="hsl(204, 70%, 53%)" readonly>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Psychology Analysis -->
+            <section class="psychology-analysis">
+                <h2>Color Psychology Analysis</h2>
+                <div class="analysis-content" id="analysisContent">
+                    <div class="analysis-placeholder">
+                        <p>Select a color to see its psychological meaning and effects</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Palette History -->
+            <section class="palette-history">
+                <h2>Recent Palettes</h2>
+                <div class="history-container" id="historyContainer">
+                    <div class="history-placeholder">
+                        <p>Your generated palettes will appear here</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="color-psychology-data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
