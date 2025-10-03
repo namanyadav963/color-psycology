@@ -52,8 +52,21 @@ class ColorPalettePicker {
     // Generate color palette
     generatePalette(colors) {
         this.currentPalette = [...colors];
-        this.renderPalette();
-        this.addToHistory();
+        this.showLoadingState();
+        setTimeout(() => {
+            this.renderPalette();
+            this.addToHistory();
+        }, 500);
+    }
+
+    // Show loading state
+    showLoadingState() {
+        const paletteContainer = document.getElementById('paletteContainer');
+        paletteContainer.innerHTML = `
+            <div class="palette-placeholder loading">
+                <p>Generating your perfect palette...</p>
+            </div>
+        `;
     }
 
     // Render the current palette
@@ -371,12 +384,16 @@ Psychology: ${this.selectedEmotion ? this.selectedEmotion.psychology : 'Mixed em
     // Setup event listeners
     setupEventListeners() {
         // Generate random palette button
-        document.getElementById('generateRandom').addEventListener('click', () => {
+        document.getElementById('generateRandom').addEventListener('click', (e) => {
+            e.target.classList.add('bounce');
+            setTimeout(() => e.target.classList.remove('bounce'), 600);
             this.generateRandomPalette();
         });
 
         // Export palette button
-        document.getElementById('exportPalette').addEventListener('click', () => {
+        document.getElementById('exportPalette').addEventListener('click', (e) => {
+            e.target.classList.add('bounce');
+            setTimeout(() => e.target.classList.remove('bounce'), 600);
             this.exportPalette();
         });
 
